@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Catalog - Yannis Maritime Service</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            <span class="logo-icon">⚓</span>
+            <span class="logo-text"
+              >Yannis <span class="logo-accent">Maritime supplies</span></span
+            >
+          </div>
+
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="catalog.html">Catalog</a></li>
+            <li class="dropdown">
+              <a href="#products" class="dropdown-toggle">Products</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="catalog.html?category=rigging">Rigging & Ropes</a>
+                </li>
+                <li>
+                  <a href="catalog.html?category=safety">Safety Equipment</a>
+                </li>
+                <li>
+                  <a href="catalog.html?category=navigation"
+                    >Navigation Tools</a
+                  >
+                </li>
+                <li>
+                  <a href="catalog.html?category=maintenance">Maintenance</a>
+                </li>
+                <li>
+                  <a href="catalog.html?category=provisions">Provisions</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="login.html" class="btn-login">Login</a></li>
+            <li>
+              <a href="dashboard.html" class="btn-dashboard">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Catalog Section -->
+    <section class="catalog-section">
+      <div class="container">
+        <h1>Product Catalog</h1>
+
+        <div class="catalog-wrapper">
+          <!-- Filter Section -->
+          <aside class="filters">
+            <h3>Filter Products</h3>
+            <div class="filter-group">
+              <label>Category</label>
+              <select id="categoryFilter" onchange="filterProducts()">
+                <option value="">All Categories</option>
+                <option value="rigging">Rigging & Ropes</option>
+                <option value="safety">Safety Equipment</option>
+                <option value="navigation">Navigation Tools</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="provisions">Provisions</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label>Price Range</label>
+              <input
+                type="range"
+                id="priceFilter"
+                min="0"
+                max="5000"
+                step="100"
+                onchange="filterProducts()"
+              />
+              <span id="priceValue">$0 - $5000</span>
+            </div>
+            <button onclick="resetFilters()" class="btn btn-secondary">
+              Reset Filters
+            </button>
+          </aside>
+
+          <!-- Products Grid -->
+          <main class="products-grid">
+            <div id="productsContainer" class="grid">
+              <!-- Products will be loaded here by JavaScript -->
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Yannis Maritime Service</h4>
+            <p>
+              Leading provider of premium ship chandling supplies and maritime
+              logistics solutions worldwide.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="catalog.html">Catalog</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Shop</h4>
+            <ul>
+              <li>
+                <a href="catalog.html?category=rigging">Rigging & Ropes</a>
+              </li>
+              <li>
+                <a href="catalog.html?category=safety">Safety Equipment</a>
+              </li>
+              <li>
+                <a href="catalog.html?category=navigation">Navigation Tools</a>
+              </li>
+              <li>
+                <a href="catalog.html?category=maintenance">Maintenance</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>📍 38, Bombay Crescent, Apapa, Lagos</p>
+            <p>📞 +234 909 0604 732</p>
+            <p>📞 +234 803 3017 079</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Yannis Maritime Service. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/catalog.js"></script>
+  </body>
+</html>

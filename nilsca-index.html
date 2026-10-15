@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NILSCA - Nigerian Licensed Ship Chandlers Association</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/nilsca-premium.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            ⚓ NILSCA <span class="logo-accent">Portal</span>
+          </div>
+
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="#">The Association</a></li>
+            <li><a href="compliance.html">Compliance & Law</a></li>
+            <li><a href="directory.html">Member Directory</a></li>
+            <li><a href="ports.html">Port Resources</a></li>
+            <li><a href="news.html">Updates</a></li>
+            <li>
+              <a href="verify.html" class="btn btn-primary">Verify Chandler</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Glassmorphism CTA -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Maritime Excellence Defined</h1>
+        <p>Trust. Verification. Global Standards.</p>
+
+        <!-- Glassmorphism CTA Box -->
+        <div class="cta-glass">
+          <h2>Verify Licensed Chandler</h2>
+          <p>Instantly authenticate any NILSCA-certified provider</p>
+          <form class="search-box" onsubmit="handleVerification(event)">
+            <input
+              type="text"
+              id="chandlerName"
+              placeholder="Enter Chandler Name or Port"
+              required
+            />
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+          <p style="font-size: 0.9rem; color: var(--color-gold-400)">
+            💡 Or scan a QR code with your mobile device
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome from President -->
+    <section class="trust-section">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: var(--spacing-xl)">
+          <span style="color: var(--color-gold-500)">President's Message</span>
+        </h2>
+        <div
+          style="
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+          "
+        >
+          <blockquote
+            style="
+              font-style: italic;
+              color: var(--color-gray-700);
+              line-height: 1.8;
+              border-left: 4px solid var(--color-gold-500);
+              padding-left: var(--spacing-lg);
+            "
+          >
+            "The maritime industry has evolved. So have we. This portal
+            represents NILSCA's commitment to transparent verification, global
+            compliance, operational efficiency, and Nigerian maritime
+            leadership. When your captain scans a chandler's digital
+            certificate, they receive absolute assurance they are engaging with
+            a true representative of NILSCA excellence."
+          </blockquote>
+          <p
+            style="
+              margin-top: var(--spacing-lg);
+              text-align: right;
+              color: var(--color-navy-900);
+              font-weight: 600;
+            "
+          >
+            — President, NILSCA<br />
+            <span style="font-size: 0.9rem; color: var(--color-gray-700)"
+              >Port of Lagos, Nigeria</span
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Pillars -->
+    <section class="trust-section">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: var(--spacing-2xl)">
+          The Four Pillars of NILSCA Excellence
+        </h2>
+
+        <div class="trust-grid">
+          <div class="trust-card">
+            <h3><span class="icon">✓</span> Transparent Verification</h3>
+            <p>
+              Every licensed chandler is digitally verified with QR-coded
+              certificates. Instant authenticity confirmation for every
+              transaction.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <h3><span class="icon">🌍</span> Global Compliance</h3>
+            <p>
+              Full IMO and ISPS Code compliance built into every process.
+              International standards, Nigerian excellence.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <h3><span class="icon">⚙️</span> Operational Efficiency</h3>
+            <p>
+              Automated renewals, real-time verification, and seamless payment
+              processing. Less paperwork, more relationships.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <h3><span class="icon">🏆</span> Maritime Leadership</h3>
+            <p>
+              NILSCA certified chandlers carry Nigeria's reputation to ports
+              worldwide. Spotless credentials. Irrefutable standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section
+      style="padding: var(--spacing-2xl) 0; background: var(--color-gray-50)"
+    >
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: var(--spacing-xl)">
+          Quick Access
+        </h2>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+          "
+        >
+          <a href="directory.html" style="text-decoration: none">
+            <div
+              style="
+                background: var(--color-white);
+                padding: var(--spacing-lg);
+                border-radius: 12px;
+                border-left: 4px solid var(--color-gold-500);
+                cursor: pointer;
+                transition: all 0.3s;
+                box-shadow: var(--shadow-sm);
+              "
+            >
+              <h4
+                style="
+                  color: var(--color-navy-900);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                📋 Member Directory
+              </h4>
+              <p style="color: var(--color-gray-600)">
+                Search & verify licensed chandlers by port
+              </p>
+            </div>
+          </a>
+
+          <a href="certificates.html" style="text-decoration: none">
+            <div
+              style="
+                background: var(--color-white);
+                padding: var(--spacing-lg);
+                border-radius: 12px;
+                border-left: 4px solid var(--color-gold-500);
+                cursor: pointer;
+                transition: all 0.3s;
+                box-shadow: var(--shadow-sm);
+              "
+            >
+              <h4
+                style="
+                  color: var(--color-navy-900);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                🎫 Digital Certificates
+              </h4>
+              <p style="color: var(--color-gray-600)">
+                Download & share QR-coded credentials
+              </p>
+            </div>
+          </a>
+
+          <a href="compliance.html" style="text-decoration: none">
+            <div
+              style="
+                background: var(--color-white);
+                padding: var(--spacing-lg);
+                border-radius: 12px;
+                border-left: 4px solid var(--color-gold-500);
+                cursor: pointer;
+                transition: all 0.3s;
+                box-shadow: var(--shadow-sm);
+              "
+            >
+              <h4
+                style="
+                  color: var(--color-navy-900);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                📜 Compliance Hub
+              </h4>
+              <p style="color: var(--color-gray-600)">
+                IMO & ISPS documentation
+              </p>
+            </div>
+          </a>
+
+          <a href="news.html" style="text-decoration: none">
+            <div
+              style="
+                background: var(--color-white);
+                padding: var(--spacing-lg);
+                border-radius: 12px;
+                border-left: 4px solid var(--color-gold-500);
+                cursor: pointer;
+                transition: all 0.3s;
+                box-shadow: var(--shadow-sm);
+              "
+            >
+              <h4
+                style="
+                  color: var(--color-navy-900);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                📰 News & Updates
+              </h4>
+              <p style="color: var(--color-gray-600)">
+                Real-time maritime news feed
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>NILSCA</h4>
+            <p>
+              Nigerian Licensed Ship Chandlers Association - Serving Excellence.
+              Delivering Trust.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul style="list-style: none">
+              <li><a href="directory.html">Member Directory</a></li>
+              <li><a href="compliance.html">Compliance</a></li>
+              <li><a href="verify.html">Verify Chandler</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul style="list-style: none">
+              <li><a href="ports.html">Port Information</a></li>
+              <li><a href="certificates.html">Certificates</a></li>
+              <li><a href="news.html">News Feed</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>
+              📞 +234 (0) 1 XXX XXXX<br />📧 info@nilsca.org.ng<br />📍 Port of
+              Lagos, Nigeria
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 NILSCA. All rights reserved. | Built with ⚓ for
+            Maritime Excellence
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/nilsca-portal.js"></script>
+  </body>
+</html>

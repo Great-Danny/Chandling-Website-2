@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News & Updates - NILSCA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/nilsca-premium.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            ⚓ NILSCA <span class="logo-accent">Portal</span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="nilsca-index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="directory.html">Directory</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section
+      style="
+        background: linear-gradient(
+          135deg,
+          var(--color-navy-900),
+          var(--color-navy-800)
+        );
+        color: var(--color-white);
+        padding: var(--spacing-2xl) 0;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <h1>Maritime News & Updates</h1>
+        <p style="color: var(--color-gold-400)">
+          Real-time Global Shipping Intelligence
+        </p>
+      </div>
+    </section>
+
+    <!-- News Feed -->
+    <section style="padding: var(--spacing-2xl) 0">
+      <div class="container">
+        <!-- Category Filter -->
+        <div
+          style="
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+          "
+        >
+          <button class="btn btn-primary" onclick="filterNews('all')">
+            All News
+          </button>
+          <button class="btn btn-secondary" onclick="filterNews('nilsca')">
+            NILSCA Updates
+          </button>
+          <button class="btn btn-secondary" onclick="filterNews('port')">
+            Port News
+          </button>
+          <button class="btn btn-secondary" onclick="filterNews('global')">
+            Global Shipping
+          </button>
+        </div>
+
+        <!-- News List -->
+        <div id="newsFeed" style="display: grid; gap: var(--spacing-lg)">
+          <!-- News items will load here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2026 NILSCA News Feed</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Sample News Data
+      const newsArticles = [
+        {
+          id: 1,
+          category: "nilsca",
+          title: "NILSCA Launches Digital Evolution Portal",
+          excerpt:
+            "Revolutionizing maritime verification with QR-coded digital certificates and real-time member directory.",
+          date: "2026-02-23",
+          source: "NILSCA Official",
+        },
+        {
+          id: 2,
+          category: "port",
+          title: "Lagos Port Authority Updates Security Protocols",
+          excerpt:
+            "New ISPS Level 3 requirements effective March 1, 2026 for all terminal operations.",
+          date: "2026-02-22",
+          source: "NPA",
+        },
+        {
+          id: 3,
+          category: "global",
+          title: "IMO Announces New Environmental Standards for 2026",
+          excerpt:
+            "All member states must implement enhanced sulphur emissions monitoring systems.",
+          date: "2026-02-20",
+          source: "IMO",
+        },
+        {
+          id: 4,
+          category: "port",
+          title: "Port Harcourt Berth 3 Maintenance Schedule",
+          excerpt:
+            "Scheduled maintenance April 1-7. Alternative berths available during this period.",
+          date: "2026-02-19",
+          source: "PHPA",
+        },
+        {
+          id: 5,
+          category: "nilsca",
+          title: "Member Spotlight: Maritime Excellence Ltd",
+          excerpt:
+            "Celebrating 15 years of exceptional service in Nigerian maritime supply chain.",
+          date: "2026-02-18",
+          source: "NILSCA",
+        },
+        {
+          id: 6,
+          category: "global",
+          title: "Suez Canal Authority Reports Record Traffic",
+          excerpt:
+            "27,000+ vessels transited in 2025, generating $7.1B in revenue.",
+          date: "2026-02-17",
+          source: "Suez Canal Authority",
+        },
+      ];
+
+      // Load News on Page Load
+      document.addEventListener("DOMContentLoaded", () => {
+        displayNews(newsArticles);
+      });
+
+      // Display News
+      function displayNews(articles) {
+        const feed = document.getElementById("newsFeed");
+        feed.innerHTML = articles
+          .map(
+            (article) => `
+                <div style="background: white; padding: var(--spacing-lg); border-radius: 12px; border-left: 4px solid var(--color-gold-500); box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                        <h3 style="color: var(--color-navy-900);">${article.title}</h3>
+                        <span style="background: var(--color-gold-200); color: var(--color-navy-900); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; white-space: nowrap;">
+                            ${article.category.toUpperCase()}
+                        </span>
+                    </div>
+                    <p style="color: var(--color-gray-700); margin-bottom: var(--spacing-md);">${article.excerpt}</p>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p style="font-size: 0.85rem; color: var(--color-gray-600);">
+                            ${new Date(article.date).toLocaleDateString()} • ${article.source}
+                        </p>
+                        <a href="#" style="color: var(--color-gold-500); text-decoration: none; font-weight: 600;">Read More →</a>
+                    </div>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      // Filter News
+      function filterNews(category) {
+        const filtered =
+          category === "all"
+            ? newsArticles
+            : newsArticles.filter((a) => a.category === category);
+        displayNews(filtered);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Directory - NILSCA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/nilsca-premium.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            ⚓ NILSCA <span class="logo-accent">Portal</span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="nilsca-index.html">Home</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="#">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section
+      style="
+        background: linear-gradient(
+          135deg,
+          var(--color-navy-900),
+          var(--color-navy-800)
+        );
+        color: var(--color-white);
+        padding: var(--spacing-2xl) 0;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <h1>Member Directory</h1>
+        <p style="color: var(--color-gold-400); font-size: 1.1rem">
+          Search & Verify NILSCA Licensed Chandlers
+        </p>
+      </div>
+    </section>
+
+    <!-- Directory Section -->
+    <section style="padding: var(--spacing-2xl) 0">
+      <div class="container">
+        <div class="directory-container">
+          <!-- Filters -->
+          <aside class="directory-filters">
+            <h3 style="margin-bottom: var(--spacing-lg)">Filter Search</h3>
+
+            <div class="filter-group">
+              <label>Port</label>
+              <select id="portFilter" onchange="filterMembers()">
+                <option value="">All Ports</option>
+                <option value="lagos">Lagos</option>
+                <option value="ph">Port Harcourt</option>
+                <option value="calabar">Calabar</option>
+                <option value="delta">Delta Port</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Service Type</label>
+              <select id="serviceFilter" onchange="filterMembers()">
+                <option value="">All Services</option>
+                <option value="provisions">Food & Provisions</option>
+                <option value="lubricants">Lubricants</option>
+                <option value="spare-parts">Spare Parts</option>
+                <option value="repairs">Repairs & Maintenance</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Verification Status</label>
+              <select id="statusFilter" onchange="filterMembers()">
+                <option value="">All Statuses</option>
+                <option value="verified">Verified ✓</option>
+                <option value="pending">Pending Review</option>
+              </select>
+            </div>
+
+            <button
+              class="btn btn-secondary btn-block"
+              onclick="resetFilters()"
+              style="margin-top: var(--spacing-lg)"
+            >
+              Reset Filters
+            </button>
+          </aside>
+
+          <!-- Member Grid -->
+          <main>
+            <div id="memberGrid" class="member-grid">
+              <!-- Members will be loaded here -->
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2026 NILSCA. Built for Maritime Excellence</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/nilsca-members.js"></script>
+  </body>
+</html>

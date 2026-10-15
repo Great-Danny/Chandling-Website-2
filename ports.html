@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Port Resources - NILSCA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/nilsca-premium.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            ⚓ NILSCA <span class="logo-accent">Portal</span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="nilsca-index.html">Home</a></li>
+            <li><a href="ports.html">Ports</a></li>
+            <li><a href="directory.html">Directory</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section
+      style="
+        background: linear-gradient(
+          135deg,
+          var(--color-navy-900),
+          var(--color-navy-800)
+        );
+        color: var(--color-white);
+        padding: var(--spacing-2xl) 0;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <h1>Nigerian Port Resources</h1>
+        <p style="color: var(--color-gold-400)">
+          Facilities • Operations • Berth Schedules
+        </p>
+      </div>
+    </section>
+
+    <!-- Port Listings -->
+    <section style="padding: var(--spacing-2xl) 0">
+      <div class="container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+          "
+        >
+          <!-- Lagos Port -->
+          <div
+            style="
+              background: white;
+              padding: var(--spacing-lg);
+              border-radius: 12px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--color-navy-900);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              📍 Port of Lagos
+            </h3>
+            <p
+              style="
+                color: var(--color-gray-700);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              Nigeria's primary commercial port with multiple terminals and
+              anchorages.
+            </p>
+            <ul
+              style="
+                color: var(--color-gray-600);
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              <li>📞 +234-1-123-4567</li>
+              <li>📧 info@lagosport.gov.ng</li>
+              <li>📍 Lagos State, Nigeria</li>
+              <li>⚓ Draught: 10.5m average</li>
+            </ul>
+            <button
+              class="btn btn-secondary btn-block"
+              onclick="viewPortDetails('lagos')"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Port Harcourt -->
+          <div
+            style="
+              background: white;
+              padding: var(--spacing-lg);
+              border-radius: 12px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--color-navy-900);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              📍 Port Harcourt
+            </h3>
+            <p
+              style="
+                color: var(--color-gray-700);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              Major oil & gas shipping hub in Niger Delta region.
+            </p>
+            <ul
+              style="
+                color: var(--color-gray-600);
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              <li>📞 +234-84-567-8901</li>
+              <li>📧 admin@portharcourt.gov.ng</li>
+              <li>📍 Rivers State, Nigeria</li>
+              <li>⚓ Draught: 9.8m average</li>
+            </ul>
+            <button
+              class="btn btn-secondary btn-block"
+              onclick="viewPortDetails('ph')"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Calabar Port -->
+          <div
+            style="
+              background: white;
+              padding: var(--spacing-lg);
+              border-radius: 12px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--color-navy-900);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              📍 Calabar Port
+            </h3>
+            <p
+              style="
+                color: var(--color-gray-700);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              Eastern Nigeria's deep-water port for general cargo and
+              containers.
+            </p>
+            <ul
+              style="
+                color: var(--color-gray-600);
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              <li>📞 +234-87-234-5678</li>
+              <li>📧 info@calabarport.gov.ng</li>
+              <li>📍 Cross River State, Nigeria</li>
+              <li>⚓ Draught: 10.2m average</li>
+            </ul>
+            <button
+              class="btn btn-secondary btn-block"
+              onclick="viewPortDetails('calabar')"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Warri Port -->
+          <div
+            style="
+              background: white;
+              padding: var(--spacing-lg);
+              border-radius: 12px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--color-navy-900);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              📍 Delta Port
+            </h3>
+            <p
+              style="
+                color: var(--color-gray-700);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              Oil terminal and general cargo gateway in Delta State.
+            </p>
+            <ul
+              style="
+                color: var(--color-gray-600);
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              <li>📞 +234-53-456-7890</li>
+              <li>📧 admin@deltaportterminal.gov.ng</li>
+              <li>📍 Delta State, Nigeria</li>
+              <li>⚓ Draught: 8.5m average</li>
+            </ul>
+            <button
+              class="btn btn-secondary btn-block"
+              onclick="viewPortDetails('delta')"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Tin Can Island -->
+          <div
+            style="
+              background: white;
+              padding: var(--spacing-lg);
+              border-radius: 12px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--color-navy-900);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              📍 Tin Can Island
+            </h3>
+            <p
+              style="
+                color: var(--color-gray-700);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              Premier container terminal adjacent to Lagos Port complex.
+            </p>
+            <ul
+              style="
+                color: var(--color-gray-600);
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              <li>📞 +234-1-789-0123</li>
+              <li>📧 ops@tincanterminals.ng</li>
+              <li>📍 Lagos State, Nigeria</li>
+              <li>⚓ Draught: 10.8m average</li>
+            </ul>
+            <button
+              class="btn btn-secondary btn-block"
+              onclick="viewPortDetails('tincan')"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Lekki Port -->
+          <div
+            style="
+              background: white;
+              padding: var(--spacing-lg);
+              border-radius: 12px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--color-navy-900);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              📍 Lekki Deep Sea Port
+            </h3>
+            <p
+              style="
+                color: var(--color-gray-700);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              Next-generation deep-water terminal (under development).
+            </p>
+            <ul
+              style="
+                color: var(--color-gray-600);
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              <li>📞 +234-1-555-6666</li>
+              <li>📧 dev@lekkideepsea.ng</li>
+              <li>📍 Lekki, Lagos State</li>
+              <li>⚓ Draught: 16.5m (design)</li>
+            </ul>
+            <button
+              class="btn btn-secondary btn-block"
+              onclick="viewPortDetails('lekki')"
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2026 NILSCA Port Resources</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function viewPortDetails(port) {
+        alert(`Full details for ${port.toUpperCase()} port opening...`);
+      }
+    </script>
+  </body>
+</html>
