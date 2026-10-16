@@ -32,7 +32,7 @@ const products = [
         stock: 300,
         emoji: '📦'
     },
-    
+
     // Safety Equipment
     {
         id: 4,
@@ -70,7 +70,7 @@ const products = [
         stock: 40,
         emoji: '🪂'
     },
-    
+
     // Navigation Tools
     {
         id: 8,
@@ -99,7 +99,7 @@ const products = [
         stock: 80,
         emoji: '🗺️'
     },
-    
+
     // Maintenance
     {
         id: 11,
@@ -137,7 +137,7 @@ const products = [
         stock: 35,
         emoji: '🔧'
     },
-    
+
     // Provisions
     {
         id: 15,
@@ -178,7 +178,7 @@ const products = [
 ];
 
 /**
- * Load and display products
+ * Load and display products.
  */
 function loadProducts() {
     const container = document.getElementById('productsContainer');
@@ -188,16 +188,14 @@ function loadProducts() {
     const priceFilter = document.getElementById('priceFilter');
 
     const selectedCategory = categoryFilter ? categoryFilter.value : '';
-    const maxPrice = priceFilter ? parseInt(priceFilter.value) : 5000;
+    const maxPrice = priceFilter ? Number(priceFilter.value) : 5000;
 
-    // Filter products
     const filteredProducts = products.filter(product => {
         const categoryMatch = !selectedCategory || product.category === selectedCategory;
         const priceMatch = product.price <= maxPrice;
         return categoryMatch && priceMatch;
     });
 
-    // Display results
     if (filteredProducts.length === 0) {
         container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px;">No products found matching your criteria.</p>';
         return;
@@ -228,32 +226,30 @@ function loadProducts() {
 }
 
 /**
- * Format category name
+ * Format category name.
  */
 function formatCategory(category) {
     const categoryMap = {
-        'rigging': 'Rigging & Ropes',
-        'safety': 'Safety',
-        'navigation': 'Navigation',
-        'maintenance': 'Maintenance',
-        'provisions': 'Provisions'
+        rigging: 'Rigging & Ropes',
+        safety: 'Safety',
+        navigation: 'Navigation',
+        maintenance: 'Maintenance',
+        provisions: 'Provisions'
     };
+
     return categoryMap[category] || category;
 }
 
 /**
- * Add product to cart
+ * Add product to cart.
  */
 function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
+    const product = products.find(item => item.id === productId);
     if (!product) return;
 
-    // Get existing cart
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Check if product already in cart
     const existingItem = cart.find(item => item.id === productId);
-    
+
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
@@ -265,79 +261,90 @@ function addToCart(productId) {
         });
     }
 
-    // Save to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Show notification
     showNotification(`✓ ${product.name} added to cart!`, 'success');
 }
 
 /**
- * Add product to favorites
+ * Add or remove a product from favorites.
  */
 function addToFavorites(productId) {
-    const product = products.find(p => p.id === productId);
+    const product = products.find(item => item.id === productId);
     if (!product) return;
 
-    // Get existing favorites
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const isFavorite = favorites.some(item => item.id === productId);
 
-    // Check if already favorited
-    if (favorites.find(f => f.id === productId)) {
-        favorites = favorites.filter(f => f.id !== productId);
-        showNotification(`✗ Removed from favorites`, 'success');
+    if (isFavorite) {
+        favorites = favorites.filter(item => item.id !== productId);
+        showNotification('✗ Removed from favorites', 'success');
     } else {
         favorites.push({
             id: productId,
             name: product.name,
             price: product.price
         });
-        showNotification(`❤️ Added to favorites!`, 'success');
+        showNotification('❤️ Added to favorites!', 'success');
     }
 
-    // Save to localStorage
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
 /**
- * Filter products based on selection
+ * Filter products based on the selected category and price.
  */
 function filterProducts() {
     loadProducts();
 }
 
 /**
- * Get URL parameters
+ * Keep the displayed price range in sync with the slider.
  */
-function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+function updatePriceFilterLabel() {
+    const priceFilter = document.getElementById('priceFilter');
+    const priceValue = document.getElementById('priceValue');
+
+    if (priceFilter && priceValue) {
+        priceValue.textContent = `$0 - $${Number(priceFilter.value).toLocaleString()}`;
+    }
 }
 
 /**
- * Initialize catalog page
+ * Get a URL parameter by name.
+ */
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    const regex = new RegExp(`[\\?&]${name}=([^&#]*)`);
+    const results = regex.exec(location.search);
+
+    return results === null
+        ? ''
+        : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+/**
+ * Initialize the catalog page.
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Set category filter from URL if present
     const categoryParam = getUrlParameter('category');
     const categoryFilter = document.getElementById('categoryFilter');
-    
+
     if (categoryParam && categoryFilter) {
         categoryFilter.value = categoryParam;
     }
 
-    // Load products on page load
+    updatePriceFilterLabel();
     loadProducts();
 
-    // Add event listeners to filters
     if (categoryFilter) {
         categoryFilter.addEventListener('change', loadProducts);
     }
 
     const priceFilter = document.getElementById('priceFilter');
     if (priceFilter) {
-        priceFilter.addEventListener('input', debounce(loadProducts, 300));
+        priceFilter.addEventListener('input', function() {
+            updatePriceFilterLabel();
+            loadProducts();
+        });
     }
 });

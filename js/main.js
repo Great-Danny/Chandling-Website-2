@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDashboard();
 });
 
+
+
 /**
  * Initialize Navigation Menu Toggle
  */
@@ -207,6 +209,13 @@ function debounce(func, delay) {
         timeoutId = setTimeout(() => func.apply(this, args), delay);
     };
 }
+
+
+/*
+    For the Hamburger menu, we can add a simple animation for the toggle button. When the menu is active, we can rotate the bars to form an "X" and change the color. This can be done with CSS transitions.
+*/
+
+
 
 /**
  * Add slide in/out animations
